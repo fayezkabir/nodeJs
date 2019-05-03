@@ -3,6 +3,7 @@ const hbs = require('hbs');
 const path = require('path');
 const fs = require('fs');
 let app = express();
+const port = process.env.PORT || 3000;
 
 app.use(express.static(__dirname + '/public')); //THIS IA A MIDDLE WARE,,,kind of addon type
 
@@ -85,8 +86,8 @@ app.get('/bad', (req, res) => {
   });
 });
 
-app.listen(3000, () => {
-  console.log('Server id Up and Running ...Ready To Go')
+app.listen(port, () => {
+  console.log(`Server id Up and Running ...Ready To Go at  ${port}`)
 });
 
 
