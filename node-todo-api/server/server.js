@@ -7,6 +7,9 @@ let { user } = require('./models/user');
 
 let app = express();
 
+
+
+
 let url = '/todos';
 app.use(bodyParser.json());
 
@@ -14,6 +17,8 @@ app.post(url, (req, res) => {
   let todo = new Todo({
     text: req.body.text
   });
+
+  
 
 
 app.get('/todos' , (req , res) => {

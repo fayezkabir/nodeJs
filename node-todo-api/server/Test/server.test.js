@@ -110,7 +110,26 @@ describe('GET/todos/:id' , () => {
             expect(res.body.user.text).toBe(todos[0].text)
         })
         .end(done);
-    })
+    });
+
+
+
+
+    it('Should  return 404 if Todo not found', (done)=> {
+        let hexId = new ObjectID().toHexString();
+        request(app)
+        .get(`/todos/${hexId}`)
+        .expect(404)
+        .end(done);
+
+    });
+
+    it('Should return for non Object Ids' , (done) => {
+        request(app)
+        .get('/todos/115abcd')
+        .expect(404)
+        .end(done);
+    });
 });
 
 
